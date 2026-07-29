@@ -24,8 +24,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid #e27b29; outline-offs
 /* Top bar */
 .topbar { position: sticky; top: 0; z-index: 50; background: rgba(2,2,3,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.1); }
 .topbar .brand, .topbar .brand b { color: #f5f4f1; }
-.topbar .btn { background: #f5f4f1; color: #020203; }
-.topbar .btn:hover { background: #f4b14c; }
+.topbar a.btn { background: #f5f4f1; color: #020203; }
+.topbar a.btn:hover { background: #f4b14c; }
 .tb-inner { max-width: 1100px; margin: 0 auto; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); }
 .brand img { width: 26px; height: 26px; }
