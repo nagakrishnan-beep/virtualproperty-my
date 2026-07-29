@@ -8,34 +8,38 @@ const PROJECTS = [
   {
     key: "property",
     category: "Property",
-    project: "Royal Lexis",
-    desc: "Step inside Royal Lexis — a residential 360° virtual tour you can explore room by room, before a single site visit.",
-    caps: ["Digital Twin", "360° Virtual Tour", "Interactive Floor Plan"],
-    img: "https://images.pexels.com/photos/33685861/pexels-photo-33685861.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    project: "Pavonia",
+    owner: "By Worldwide Holdings Berhad",
+    desc: "A 3D-rendered virtual show unit of an exclusive, low-density residential enclave in Shah Alam by Worldwide Holdings Berhad (WHB).",
+    caps: ["3D / CGI", "Virtual Show Unit", "360° Virtual Tour"],
+    img: "/experiences/pavonia-worldwide-holdings.jpg",
   },
   {
     key: "hospitality",
     category: "Hospitality",
-    project: "Lexis",
-    desc: "Experience Lexis hospitality spaces and rooms the way guests will — an immersive walkthrough before they book.",
-    caps: ["360° Virtual Tour", "Aerial 360°", "3D / CGI"],
-    img: "https://images.pexels.com/photos/27695825/pexels-photo-27695825.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    project: "Royal Lexis",
+    owner: "By KL Metro Group",
+    desc: "Step inside Royal Lexis — a residential 360° virtual tour you can explore room by room, before a single site visit.",
+    caps: ["360° Virtual Tour", "Digital Twin", "Interactive Floor Plan"],
+    img: "/experiences/royal-lexis-kl-metro.jpg",
   },
   {
     key: "venues",
     category: "Venues",
-    project: "KLCC Convention Centre",
-    desc: "Walk the KLCC Convention Centre through an interactive venue tour, so event planners understand the space remotely.",
-    caps: ["Interactive Tour", "Digital Twin", "Aerial 360°"],
-    img: "https://images.pexels.com/photos/33685860/pexels-photo-33685860.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    project: "Malaysia Agro Exposition Park Serdang",
+    owner: "Powered by MARDI Corporation",
+    desc: "Malaysia's largest event venue (MAEPS), captured as an immersive 360° tour so organisers can plan events remotely.",
+    caps: ["360° Virtual Tour", "Aerial 360°", "Interactive Tour"],
+    img: "/experiences/maeps-serdang.jpg",
   },
   {
     key: "developments",
     category: "Developments",
     project: "Peel Lane",
+    owner: "By Novo Reperio",
     desc: "Tour the Peel Lane development in immersive 360°, bringing the project to life for buyers from anywhere.",
     caps: ["360° Virtual Tour", "3D / CGI", "Aerial 360°"],
-    img: "https://images.unsplash.com/photo-1644088379091-d574269d422f?auto=format&fit=crop&w=1200&q=80",
+    img: "/experiences/peel-lane.jpg",
   },
 ];
 
@@ -94,7 +98,7 @@ function ProjectCard({ p, index, onStart }) {
     >
       <img
         src={p.img}
-        alt={`${p.project} — ${p.category.toLowerCase()} 360° virtual tour by VirtualProperty.my`}
+        alt={`${p.project} — ${p.category.toLowerCase()} 360° virtual tour and 3D visualisation by VirtualProperty.my`}
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover transition-transform ease-out group-hover:scale-105"
         style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
@@ -127,7 +131,12 @@ function ProjectCard({ p, index, onStart }) {
             ))}
           </div>
           <h3 className="font-display text-3xl md:text-4xl">{p.project}</h3>
-          <p className="mt-2 text-sm text-white/60 max-w-md leading-relaxed">
+          {p.owner && (
+            <p className="mt-1 text-xs font-mono-vp uppercase tracking-[0.18em] text-white/50">
+              {p.owner}
+            </p>
+          )}
+          <p className="mt-3 text-sm text-white/60 max-w-md leading-relaxed">
             {p.desc}
           </p>
           <a

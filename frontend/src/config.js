@@ -39,10 +39,9 @@ export const SOCIAL = {
 
 // Live project experience links (open in a new tab from "Explore Experience").
 export const PROJECT_LINKS = {
-  property: "https://virtualproperty.my/360tour/royallexis/",
-  hospitality: "https://lexis.novoreperio.com/",
-  venues:
-    "https://www.klccconventioncentre.com/organisers/plan-an-event/interactive-tour",
+  property: "https://my.treedis.com/tour/pavonia-worldwide",
+  hospitality: "https://virtualproperty.my/360tour/royallexis/",
+  venues: "https://novoreperio.com/360tour/maeps/",
   developments: "https://novoreperio.com/360tour/peel-lane/",
 };
 
