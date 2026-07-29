@@ -1,0 +1,33 @@
+{
+  "summary": "Frontend-only regression for VirtualProperty.my static Insights hub + 3 article pages. Verified header/footer uniformity and About credibility block readability across all 4 pages plus landing page regression. All acceptance criteria pass EXCEPT the topbar 'Start a Project' button which renders as a DARK pill (rgb(22,19,15)) rather than the specified LIGHT pill (#f5f4f1) — a more specific `.btn.dark` rule wins over `.topbar .btn` in insights.css.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Topbar CTA on /insights/, /virtual-site-visits/, /property-sales-technology-trends/, /property-agent-technology/",
+        "issue": "The 'Start a Project' button renders DARK (bg rgb(22,19,15), text light) instead of the intended LIGHT pill (#f5f4f1 bg, dark text) described in the fix spec. Anchor markup is `<a class=\"btn dark\" href=\"/#start\">` — the class 'dark' triggers a global `.btn.dark` rule that overrides `.topbar .btn { background:#f5f4f1; color:#020203 }` in /assets/insights.css. Button is still readable (light text on dark), but visually blends with the near-black topbar (bg rgba(2,2,3,0.85)), reducing prominence and deviating from the specified light-pill design.",
+        "selector": ".topbar a.btn.dark",
+        "priority": "MEDIUM"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Insights topbar", "issues": ["'Start a Project' CTA is a dark pill on a near-black topbar — low visual contrast against the surrounding topbar background; spec called for a light pill."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Remove class 'dark' from the Start-a-Project anchor in the topbar of the 4 insights pages, OR raise specificity in /assets/insights.css (e.g., `.topbar a.btn, .topbar a.btn.dark { background:#f5f4f1; color:#020203; }`) so the light-pill styling wins."
+  ],
+  "critical_code_review_comments": [
+    "CSS specificity leak: `.btn.dark` global class overrides scoped `.topbar .btn` rule. Either scope the topbar CTA styling more specifically or drop the `dark` modifier on that anchor in all 4 static HTML files."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "~95% (5/6 checks fully pass; topbar-CTA color is the sole miss)"},
+  "test_credentials": "None required",
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Verified via curl + Playwright on preview URL https://immersive-capture-4.preview.emergentagent.com. All 4 insights routes + landing return 200. On /insights/, /virtual-site-visits/, /property-sales-technology-trends/, /property-agent-technology/: topbar bg = rgba(2,2,3,0.85) (dark ✓), brand text = rgb(245,244,241) (white ✓), .credibility bg = rgb(255,255,255) with color rgb(43,39,33) (light card, dark readable text ✓; article pages only — hub /insights/ has no credibility block by design), .sf-tag renders full text 'Turn Property Into an Experience.', 'Powered by Novo Reperio Sdn Bhd' present in .sf-bottom, exactly one <h1> per page, canonical present, JSON-LD script tag present, FAQ <details> toggles work (verified open→close on virtual-site-visits), NO horizontal overflow at 1440/1024/768/390 on any of the 4 pages. Landing page (/) still has 1 h1 and loads clean. Only console output: an unrelated warning about a non-static container for scroll offset — non-blocking. Footer links resolve: /, /contact/, /insights/, /privacy-policy/, /terms-conditions/ all 200. ONLY remaining issue: topbar 'Start a Project' anchor has class 'btn dark' — the 'dark' modifier overrides intended light-pill styling. Fix is either to remove class 'dark' from that <a> in all 4 static HTMLs, or bump specificity in /assets/insights.css.",
+  "rca of the issue": "Root cause: The Start-a-Project anchor in the topbar of the 4 insights static HTML files carries class 'btn dark'. A global `.btn.dark` rule (dark bg #16130f, light text) defined outside insights.css has higher/equal specificity vs `.topbar .btn { background:#f5f4f1; color:#020203 }` and wins because it's declared later (or same specificity, later cascade). Repro: open /insights/ → inspect topbar right-side CTA → computed background = rgb(22,19,15). Mitigation: (a) remove ' dark' class on that anchor in the 4 files, or (b) in insights.css write `.topbar a.btn, .topbar a.btn.dark { background:#f5f4f1 !important; color:#020203 !important; }` — option (a) preferred."
+}
