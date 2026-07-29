@@ -1,5 +1,5 @@
 import { Logo } from "./Logo";
-import { SOCIAL, NOVO_REPERIO_URL } from "../../config";
+import { SOCIAL, NOVO_REPERIO_URL, POWERED_BY_URL } from "../../config";
 
 export default function Footer({ scrollTo }) {
   const socials = Object.entries(SOCIAL).filter(([, v]) => v);
@@ -90,7 +90,21 @@ export default function Footer({ scrollTo }) {
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/40">
           <span>© 2026 VirtualProperty.my. All rights reserved.</span>
-          <span className="font-mono-vp">Powered by Reality Capture Experts</span>
+          {POWERED_BY_URL ? (
+            <a
+              data-testid="footer-powered-by"
+              href={POWERED_BY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono-vp hover:text-white transition-colors duration-300"
+            >
+              Powered by Reality Capture Experts
+            </a>
+          ) : (
+            <span data-testid="footer-powered-by" className="font-mono-vp">
+              Powered by Reality Capture Experts
+            </span>
+          )}
         </div>
       </div>
     </footer>

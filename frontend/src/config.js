@@ -29,6 +29,9 @@ export const FORM_ENDPOINT = "";
 // Novo Reperio external link — leave "" to hide the outbound CTA.
 export const NOVO_REPERIO_URL = "";
 
+// "Powered by Reality Capture Experts" credit link (footer).
+export const POWERED_BY_URL = "https://novoreperio.com/";
+
 // Social links — leave "" to hide.
 export const SOCIAL = {
   instagram: "",
