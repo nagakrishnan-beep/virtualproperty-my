@@ -1,0 +1,72 @@
+{
+  "project": "VIRTUALPROPERTY.MY",
+  "theme_strategy": "Hybrid",
+  "theme_details": "Dominant dark cinematic hero + transformation sections. Light sections for architectural & premium showcase. Do NOT invent new colors.",
+  "colors": {
+    "base_dark": "#020203",
+    "base_light": "#F8F8F7",
+    "surface_dark": "#0A0A0B",
+    "surface_light": "#FFFFFF",
+    "text_dark_theme": "#EAEAEA",
+    "text_light_theme": "#1A1A1A",
+    "brand_tricolor": "linear-gradient(135deg, #8B1561, #E27B29, #F4B14C)",
+    "accent_magenta": "#8B1561",
+    "accent_orange": "#E27B29",
+    "accent_gold": "#F4B14C"
+  },
+  "typography": {
+    "primary_heading": "Cabinet Grotesk",
+    "secondary_body": "Manrope",
+    "banned_fonts": ["Inter", "Space Grotesk", "Roboto", "Open Sans"],
+    "details": "Use Cabinet Grotesk for cinematic, premium architectural headings. Use Manrope for high-legibility tech details. Apply tracking-tighter to H1/H2."
+  },
+  "layouts_and_grids": {
+    "general": "Bento-style grids, asymmetrical columns (e.g. 4-col + 8-col). Avoid standard symmetrical 4-column cards.",
+    "spacing": "Generous spacing. Use Tailwind classes like py-24, py-32 for section padding."
+  },
+  "visual_enhancers": {
+    "dark_sections": "Subtle noise/grain overlays, abstract point cloud tech meshes, deep shadows, 1px rgba(255,255,255,0.1) borders.",
+    "light_sections": "Architectural feel, crisp edges, subtle rgba(0,0,0,0.05) borders, solid background instead of glassmorphism if it holds data."
+  },
+  "motion": {
+    "scroll_engine": "lenis for smooth momentum scrolling.",
+    "animation_library": "framer-motion",
+    "hero_reveal": "Masked line-by-line reveal using Framer Motion (initial y: 100%, clip-path mask, staggered 0.1s).",
+    "transformation_sequence": "Sticky scroll container (position: sticky or framer-motion useScroll). User scrolls to progress through 5 phases. Lightweight CSS opacity/transform crossfading for background images and text instead of heavy WebGL."
+  },
+  "components": {
+    "Navigation": "Sticky, transparent to solid on scroll with backdrop-blur-xl. Contains logo, links, CTA.",
+    "Hero": "Full-screen 100vh. Dark theme. Kinetic typography. Subtle point cloud background with #020203 vignette.",
+    "The_Transformation": "Scroll-driven visual. Sticky container. 5 stages (Physical Space -> Capture -> Digital Twin -> Immersive -> Marketing -> Conversion). Background changes state.",
+    "Capabilities": "Light theme. Interactive pattern (e.g., sticky side tabs or vertical accordion). NOT a 4-col card grid. When one is active, visual shifts.",
+    "Project_Showcase": "Light theme. Asymmetrical bento grid or horizontal scroll. Project categories: Property, Hospitality, Venues, Developments.",
+    "Who_We_Help": "Dark theme. 6 interactive segments. Hovering one segment reveals use cases and dims others.",
+    "Conversion_Funnel": "Multi-step interactive qualification flow. App-like step-by-step UI, progress bar using brand gradient.",
+    "Credibility_Band": "Dark theme. Slow editorial marquee (react-fast-marquee) with \"POWERED BY NOVO REPERIO\".",
+    "Footer": "Massive typography for final CTA, stark architectural structure, generous spacing.",
+    "Floating_WhatsApp": "Fixed bottom-right button with pulse animation, z-50."
+  },
+  "image_urls": {
+    "hero_bg": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2glMjBwb2ludCUyMGNsb3VkJTIwbWVzaHxlbnwwfHx8fDE3ODUzMjU1MjB8MA&ixlib=rb-4.1.0&q=85",
+    "transformation_bg": "https://images.unsplash.com/photo-1758073519996-6d3c63b4922c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMHRlY2glMjBwb2ludCUyMGNsb3VkJTIwbWVzaHxlbnwwfHx8fDE3ODUzMjU1MjB8MA&ixlib=rb-4.1.0&q=85",
+    "architecture_luxury_1": "https://images.pexels.com/photos/33685861/pexels-photo-33685861.jpeg",
+    "architecture_luxury_2": "https://images.pexels.com/photos/33685860/pexels-photo-33685860.jpeg",
+    "cinematic_building": "https://images.pexels.com/photos/27695825/pexels-photo-27695825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Use .js/.jsx files only, NO .tsx files.",
+    "Do NOT use complete transparent background in header, overlays, any surface that has content under it.",
+    "Implement glass-morphism effects with backdrop filters (12-24px blur) where appropriate.",
+    "Do NOT apply universal transition (e.g. transition: all). Add transitions for specific properties.",
+    "Do NOT center align the app container (.App { text-align: center; } is strictly forbidden).",
+    "Include data-testid on all interactive elements (e.g. data-testid='hero-cta-button').",
+    "Avoid generic WordPress look, property portal styles, or boring service card grids.",
+    "Do NOT invent statistics, pricing, testimonials, or project details.",
+    "Ensure dark to light theme transitions feel intentional.",
+    "Install required dependencies: framer-motion, lenis (or @studio-freight/lenis), lucide-react, react-fast-marquee."
+  ],
+  "accessibility": {
+    "contrast": "Ensure text over gradients or dark backgrounds meets APCA standards.",
+    "motion": "Ensure scroll animations perform well and do not hijack standard scroll completely."
+  }
+}
