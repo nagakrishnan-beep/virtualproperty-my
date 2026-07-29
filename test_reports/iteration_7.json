@@ -1,0 +1,20 @@
+{
+  "summary": "Final QA sweep of VirtualProperty.my landing page — full conversion funnel + all nav/CTA/experience/segment/FAQ/footer/whatsapp-float verified. All acceptance criteria pass: 1 h1, 0 console errors, no horizontal overflow at 1440/1024/768/390, full funnel Step1→Step2→Step3→Step4 works with validation (empty submit shows both field-name-error and field-email-error, 'abc' shows email error, valid Name+Email advances to success). WhatsApp deep link on Step4 = https://wa.me/60172029996?text=... and decoded body contains 'Goal: Sell a Property' + 'Deliverable: 360° Virtual Tour'. Start over resets. Back button returns to Step1. All 4 project CTAs have correct href + target=_blank + rel=noopener. Experience images load (naturalWidth>0). All 6 goals, 6 deliverables, 6 segments, 8 FAQ items, 4 capabilities present. Mobile menu opens/closes on link tap; mobile-start-project present. Footer powered-by → https://novoreperio.com/ target=_blank rel=noopener noreferrer. Footer privacy/terms are intentional placeholder anchors (href='#'). WhatsApp float href correct.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Footer scroll links (footer-link-what-we-do/experiences/who-we-help/about/start) are rendered as <button>, not <a>. Semantically these are in-page navigation and could equally be anchors with href='#section'. Current behavior works (they scroll correctly)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Site is a static frontend-only React landing page. Lenis smooth scroll is active — funnel choices auto-advance after ~260ms so wait ~700-900ms between selecting a goal/deliverable. FAQ item #0 is OPEN by default (aria-expanded=true on load); toggle logic is inverted-style but correct. Footer privacy/terms href='#' are intentional placeholders per product decision — do NOT flag as bug. WhatsApp fallback (FORM_ENDPOINT='') is expected. Number: 60172029996. Powered by URL: https://novoreperio.com/."
+}
