@@ -72,6 +72,7 @@ function App() {
         <WhatWeDo />
         <ExperienceWork onStart={startProject} />
         <WhoWeHelp />
+        <KnowledgeFAQ />
         <ConversionFunnel />
         <NovoReperio />
         <FinalCTA onStart={startProject} />

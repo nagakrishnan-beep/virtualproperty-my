@@ -1,0 +1,44 @@
+{
+  "summary": "Iteration 3 retest. PRIMARY FIX VERIFIED: KnowledgeFAQ section now renders between WhoWeHelp and ConversionFunnel in App.js. All 8 FAQ questions render with correct testids (faq-question-0..7); Q0 text matches 'What is a Digital Twin for property?'; accordion behavior verified (clicking a different question closes the previously open one, aria-expanded toggles, faq-answer-N shows/hides). Answer content is factual and visible. Visible FAQ questions match the FAQPage JSON-LD in <head> (8 Q&A). No regressions detected.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Minor: KnowledgeFAQ initial state useState(0) means Q0 is expanded by default. This is fine UX but note that clicking Q0 closes it (open becomes -1) — acceptable accordion pattern.",
+    "The review request referred to funnel testids as goal-0..N and deliverable-0..N, but actual DOM uses semantic IDs (goal-sell, goal-market, deliverable-tour, etc.). Real testids are semantic and correct; only the review-request wording is outdated. Similarly, form field testids are field-name / field-email (matching the -error testid convention)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "test_credentials": "None (no auth)",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "FAQ (faq-section, faq-question-0..7, faq-answer-0..7) confirmed rendered and interactive; Q0 open by default. Funnel testids are semantic: goal-{sell|market|showcase|twin|tour|else}, deliverable-{tour|twin|cgi|website|complete|unsure}. Form fields: field-name, field-email, field-company, field-phone, field-project, field-location, field-message; errors use `{testid}-error`. Funnel WhatsApp href includes goal/deliverable/name/email as URL-encoded text, points to wa.me/60172029996. dataLayer events fired in order: page_view, cta_click, funnel_start, service_selection, project_type_selected, form_submit, whatsapp_click. Segments 0..5 in WhoWeHelp are BUTTON elements. No horizontal overflow at 1440/1024/768/390. Single <h1>. Canonical https://virtualproperty.my/. html lang=en-MY. JSON-LD single script includes WebSite, WebPage, Organization/ProfessionalService, Service, FAQPage.",
+  "test_results_detail": {
+    "faq_section_exists": true,
+    "all_8_questions_render": true,
+    "q0_text_correct": true,
+    "q0_initially_expanded": true,
+    "accordion_only_one_open": true,
+    "faq_ld_consistent_8": true,
+    "h1_count": 1,
+    "canonical_ok": true,
+    "html_lang": "en-MY",
+    "og_and_twitter_present": true,
+    "wa_float_href_ok": true,
+    "wa_final_href_ok": true,
+    "funnel_empty_submit_shows_errors": true,
+    "invalid_email_error_shown": "Please enter a valid email.",
+    "valid_submit_reaches_success_with_correct_wa_href": true,
+    "dataLayer_all_expected_events_present": true,
+    "whowehelp_segments_are_buttons": true,
+    "no_console_errors": true,
+    "no_horizontal_overflow": {"1440": 0, "1024": 0, "768": 0, "390": 0},
+    "mobile_faq_toggle_works": true
+  }
+}
