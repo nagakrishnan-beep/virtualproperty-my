@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { Reveal, EASE } from "../../lib/motion";
 import { whatsappLink } from "../../config";
+import { track } from "../../lib/analytics";
 
 export default function FinalCTA({ onStart }) {
   return (
@@ -41,7 +42,10 @@ export default function FinalCTA({ onStart }) {
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               data-testid="final-start-btn"
-              onClick={onStart}
+              onClick={() => {
+                track("cta_click", { cta: "final_start" });
+                onStart();
+              }}
               className="group inline-flex items-center gap-2 rounded-full bg-white text-[#020203] px-9 py-5 text-base font-semibold tracking-tight hover:bg-[#f4b14c] transition-colors duration-300"
             >
               Start Your Project
@@ -50,6 +54,7 @@ export default function FinalCTA({ onStart }) {
             <a
               data-testid="final-whatsapp-btn"
               href={whatsappLink()}
+              onClick={() => track("whatsapp_click", { location: "final_cta" })}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full border border-white/25 text-white px-9 py-5 text-base font-semibold tracking-tight hover:border-white/60 hover:bg-white/5 transition-colors duration-300"

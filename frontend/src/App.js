@@ -8,13 +8,19 @@ import WhatWeDo from "@/components/landing/WhatWeDo";
 import ExperienceWork from "@/components/landing/ExperienceWork";
 import WhoWeHelp from "@/components/landing/WhoWeHelp";
 import ConversionFunnel from "@/components/landing/ConversionFunnel";
+import KnowledgeFAQ from "@/components/landing/KnowledgeFAQ";
 import NovoReperio from "@/components/landing/NovoReperio";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 import WhatsAppButton from "@/components/landing/WhatsAppButton";
+import { track } from "@/lib/analytics";
 
 function App() {
   const lenisRef = useRef(null);
+
+  useEffect(() => {
+    track("page_view", { page: "home" });
+  }, []);
 
   useEffect(() => {
     const reduce = window.matchMedia(

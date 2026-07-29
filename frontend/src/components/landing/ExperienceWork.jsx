@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, EASE } from "../../lib/motion";
 import { PROJECT_LINKS } from "../../config";
+import { track } from "../../lib/analytics";
 
 const PROJECTS = [
   {
@@ -68,6 +69,7 @@ function ProjectCard({ p, index, onStart }) {
   const big = index === 0 || index === 3;
 
   const handle = (e) => {
+    track("cta_click", { cta: "explore_experience", category: p.key });
     if (!url) {
       // placeholder — no real project URL configured yet
       e.preventDefault();

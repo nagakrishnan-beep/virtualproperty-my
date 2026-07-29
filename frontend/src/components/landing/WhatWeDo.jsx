@@ -91,6 +91,11 @@ export default function WhatWeDo() {
             One space.{" "}
             <span className="text-gradient">Many possibilities.</span>
           </h2>
+          <p className="mt-6 max-w-2xl text-base md:text-lg text-black/55 font-sans-vp leading-relaxed">
+            VirtualProperty.my turns Malaysian properties and physical spaces
+            into interactive digital experiences — from capture and Digital
+            Twins to immersive tours and property marketing.
+          </p>
         </Reveal>
 
         <div className="mt-16 grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-start">

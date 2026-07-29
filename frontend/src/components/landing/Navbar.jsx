@@ -42,7 +42,7 @@ export default function Navbar({ onStart, scrollTo }) {
             : "bg-transparent border-b border-transparent py-5"
         }`}
       >
-        <nav className="mx-auto max-w-[1400px] px-5 md:px-10 flex items-center justify-between">
+        <nav aria-label="Primary" className="mx-auto max-w-[1400px] px-5 md:px-10 flex items-center justify-between">
           <button
             data-testid="nav-logo"
             onClick={() => go("hero")}

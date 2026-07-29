@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Home,
@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { EASE } from "../../lib/motion";
 import { FORM_ENDPOINT, whatsappLink } from "../../config";
+import { track } from "../../lib/analytics";
 
 const GOALS = [
   { id: "sell", label: "Sell a Property", icon: Home },
@@ -54,6 +55,11 @@ export default function ConversionFunnel({ registerScrollTarget }) {
   });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    track("funnel_step", { step: step + 1, name: STEPS[step] });
+    if (step === 2) track("form_start");
+  }, [step]);
 
   const goalLabel = GOALS.find((g) => g.id === goal)?.label || "";
   const delivLabel = DELIVERABLES.find((d) => d.id === deliverable)?.label || "";
@@ -102,6 +108,7 @@ export default function ConversionFunnel({ registerScrollTarget }) {
       /* silent — WhatsApp fallback still available on the success screen */
     } finally {
       setSubmitting(false);
+      track("form_submit", { goal: goalLabel, deliverable: delivLabel });
       setStep(3);
     }
   };
@@ -176,7 +183,11 @@ export default function ConversionFunnel({ registerScrollTarget }) {
                       icon={g.icon}
                       label={g.label}
                       active={goal === g.id}
-                      onClick={() => pick(setGoal, g.id)}
+                      onClick={() => {
+                        track("funnel_start");
+                        track("service_selection", { goal: g.id });
+                        pick(setGoal, g.id);
+                      }}
                     />
                   ))}
                 </div>
@@ -197,7 +208,10 @@ export default function ConversionFunnel({ registerScrollTarget }) {
                       icon={d.icon}
                       label={d.label}
                       active={deliverable === d.id}
-                      onClick={() => pick(setDeliverable, d.id)}
+                      onClick={() => {
+                        track("project_type_selected", { deliverable: d.id });
+                        pick(setDeliverable, d.id);
+                      }}
                     />
                   ))}
                 </div>
@@ -317,6 +331,7 @@ export default function ConversionFunnel({ registerScrollTarget }) {
                   <a
                     data-testid="funnel-whatsapp"
                     href={whatsappLink(buildMessage())}
+                    onClick={() => track("whatsapp_click", { location: "funnel" })}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-7 inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white"

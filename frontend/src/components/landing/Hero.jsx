@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { EASE } from "../../lib/motion";
+import { track } from "../../lib/analytics";
 
 const HEAD_LINES = ["TURN PROPERTY", "INTO AN", "EXPERIENCE."];
 
@@ -123,7 +124,8 @@ export default function Hero({ onExplore, onStart }) {
           className="mt-8 max-w-xl text-base md:text-lg text-white/65 leading-relaxed font-sans-vp"
         >
           Digital Twins, 360° Virtual Tours, Reality Capture and immersive
-          digital experiences for property and the built environment.
+          digital experiences for property and the built environment across
+          Malaysia.
         </motion.p>
 
         <motion.div
@@ -134,7 +136,10 @@ export default function Hero({ onExplore, onStart }) {
         >
           <button
             data-testid="hero-explore-btn"
-            onClick={onExplore}
+            onClick={() => {
+              track("cta_click", { cta: "hero_explore" });
+              onExplore();
+            }}
             className="group inline-flex items-center gap-2 rounded-full bg-white text-[#020203] px-7 py-4 text-sm font-semibold tracking-tight hover:bg-[#f4b14c] transition-colors duration-300"
           >
             Explore What We Do
@@ -142,7 +147,10 @@ export default function Hero({ onExplore, onStart }) {
           </button>
           <button
             data-testid="hero-start-btn"
-            onClick={onStart}
+            onClick={() => {
+              track("cta_click", { cta: "hero_start" });
+              onStart();
+            }}
             className="group inline-flex items-center gap-2 rounded-full border border-white/25 text-white px-7 py-4 text-sm font-semibold tracking-tight hover:border-white/70 hover:bg-white/5 transition-colors duration-300"
           >
             Start a Project

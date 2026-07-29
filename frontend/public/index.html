@@ -1,39 +1,47 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-MY">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#020203" />
         <meta
             name="description"
-            content="Transform property and physical spaces into immersive digital experiences with Digital Twins, 360° Virtual Tours, Reality Capture, 3D visualisation and interactive property marketing."
+            content="VirtualProperty.my creates Digital Twins, 360° virtual tours, Matterport 3D and immersive property experiences for developers, agents, hospitality and venues across Malaysia."
         />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://virtualproperty.my/" />
+        <link rel="preload" as="image" href="/vp-icon-64.png" fetchpriority="high" />
 
         <!-- Open Graph -->
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="VirtualProperty.my" />
+        <meta property="og:locale" content="en_MY" />
         <meta
             property="og:title"
-            content="VirtualProperty.my | Digital Twins, 360° Virtual Tours & Property Experiences"
+            content="Digital Twins & 360° Virtual Tours Malaysia | VirtualProperty.my"
         />
         <meta
             property="og:description"
-            content="Turn property into an experience. Digital Twins, 360° Virtual Tours, Reality Capture and immersive digital experiences for property and the built environment. Powered by Novo Reperio."
+            content="Turn property into an experience. Digital Twins, 360° virtual tours, Matterport 3D, Reality Capture and immersive property marketing across Malaysia."
         />
         <meta property="og:url" content="https://virtualproperty.my/" />
         <meta property="og:image" content="https://virtualproperty.my/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="VirtualProperty.my — Turn Property Into an Experience. Digital Twins, 360° Virtual Tours & Spatial Technology in Malaysia."
+        />
 
         <!-- Twitter / X -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta
             name="twitter:title"
-            content="VirtualProperty.my | Digital Twins & Immersive Property Experiences"
+            content="Digital Twins & 360° Virtual Tours Malaysia | VirtualProperty.my"
         />
         <meta
             name="twitter:description"
-            content="Turn property into an experience — Digital Twins, 360° Virtual Tours, Reality Capture and immersive digital marketing. Powered by Novo Reperio."
+            content="Turn property into an experience — Digital Twins, 360° virtual tours, Matterport 3D and immersive property marketing across Malaysia."
         />
         <meta name="twitter:image" content="https://virtualproperty.my/og-image.jpg" />
 
@@ -53,10 +61,7 @@
         work correctly both with client-side routing and a non-root public URL.
         Learn how to configure a non-root public URL by running `npm run build`.
         -->
-        <title>
-            VirtualProperty.my | Digital Twins, 360° Virtual Tours & Property
-            Experiences
-        </title>
+        <title>Digital Twins &amp; Virtual Tours Malaysia | VirtualProperty.my</title>
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -66,26 +71,80 @@
                         "@id": "https://virtualproperty.my/#website",
                         "url": "https://virtualproperty.my/",
                         "name": "VirtualProperty.my",
-                        "description": "Turn Property Into an Experience.",
+                        "description": "Digital Twins, 360° virtual tours and immersive property experiences in Malaysia.",
+                        "inLanguage": "en-MY",
                         "publisher": { "@id": "https://virtualproperty.my/#org" }
                     },
                     {
-                        "@type": ["Organization", "LocalBusiness"],
+                        "@type": "WebPage",
+                        "@id": "https://virtualproperty.my/#webpage",
+                        "url": "https://virtualproperty.my/",
+                        "name": "Digital Twins & Virtual Tours Malaysia | VirtualProperty.my",
+                        "isPartOf": { "@id": "https://virtualproperty.my/#website" },
+                        "about": { "@id": "https://virtualproperty.my/#org" },
+                        "inLanguage": "en-MY",
+                        "primaryImageOfPage": "https://virtualproperty.my/og-image.jpg"
+                    },
+                    {
+                        "@type": ["Organization", "ProfessionalService"],
                         "@id": "https://virtualproperty.my/#org",
                         "name": "VirtualProperty.my",
                         "legalName": "Novo Reperio Sdn Bhd",
-                        "description": "Malaysian spatial technology and Digital Twin company specialising in Reality Capture, Digital Twins, 360° Virtual Tours, 3D visualisation, immersive experiences and digital property marketing.",
+                        "description": "Malaysian property and spatial technology brand specialising in Digital Twins, 360° virtual tours, Matterport 3D, Reality Capture, LiDAR scanning, 3D visualisation, CGI, virtual staging and interactive property marketing.",
                         "url": "https://virtualproperty.my/",
-                        "areaServed": "MY",
+                        "logo": "https://virtualproperty.my/vp-icon.png",
+                        "image": "https://virtualproperty.my/og-image.jpg",
                         "slogan": "Turn Property Into an Experience.",
-                        "parentOrganization": { "@type": "Organization", "name": "Novo Reperio Sdn Bhd" }
+                        "areaServed": { "@type": "Country", "name": "Malaysia" },
+                        "knowsAbout": [
+                            "Digital Twin",
+                            "360° Virtual Tour",
+                            "Matterport 3D",
+                            "Reality Capture",
+                            "LiDAR Scanning",
+                            "360° Photography",
+                            "Aerial / Drone Capture",
+                            "3D Visualisation",
+                            "CGI",
+                            "Virtual Staging",
+                            "Interactive Property Experiences",
+                            "Property Marketing Technology"
+                        ],
+                        "parentOrganization": {
+                            "@type": "Organization",
+                            "name": "Novo Reperio Sdn Bhd"
+                        }
                     },
                     {
                         "@type": "Service",
-                        "name": "Spatial Technology & Digital Twin Services",
+                        "@id": "https://virtualproperty.my/#services",
+                        "name": "Digital Twin & Spatial Technology Services",
                         "provider": { "@id": "https://virtualproperty.my/#org" },
-                        "serviceType": "Reality Capture, Digital Twins, 360° Virtual Tours, 3D / CGI, Immersive Experiences, Digital Property Marketing",
-                        "areaServed": "MY"
+                        "areaServed": { "@type": "Country", "name": "Malaysia" },
+                        "hasOfferCatalog": {
+                            "@type": "OfferCatalog",
+                            "name": "Property Spatial Technology Services",
+                            "itemListElement": [
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reality Capture", "description": "Matterport 3D, LiDAR scanning, 360° and DSLR panorama photography, aerial/drone and spatial data capture." } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Twin & 3D", "description": "Digital Twins, 3D modelling, Scan-to-BIM, 3D rendering, CGI and virtual staging." } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Immersive Experiences", "description": "360° virtual tours, interactive floor plans, virtual showrooms and AR/VR/XR property experiences." } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Property Marketing", "description": "Property microsites, interactive websites, SEO, digital campaigns, lead generation and analytics." } }
+                            ]
+                        }
+                    },
+                    {
+                        "@type": "FAQPage",
+                        "@id": "https://virtualproperty.my/#faq",
+                        "mainEntity": [
+                            { "@type": "Question", "name": "What is a Digital Twin for property?", "acceptedAnswer": { "@type": "Answer", "text": "A property Digital Twin is an accurate, interactive 3D replica of a real space. It lets buyers, tenants and teams explore a property online — walking through rooms, checking dimensions and understanding layout — from any device, anywhere." } },
+                            { "@type": "Question", "name": "What is a 360° virtual tour?", "acceptedAnswer": { "@type": "Answer", "text": "A 360° virtual tour connects panoramic images into a navigable walkthrough. Viewers look in every direction and move between spaces, experiencing a property remotely before visiting in person." } },
+                            { "@type": "Question", "name": "What is Matterport?", "acceptedAnswer": { "@type": "Answer", "text": "Matterport is a 3D capture platform that scans a physical space and turns it into a photorealistic, measurable Digital Twin, widely used for property, hospitality and commercial virtual tours." } },
+                            { "@type": "Question", "name": "How can a Digital Twin help property developers?", "acceptedAnswer": { "@type": "Answer", "text": "A Digital Twin lets developers market and sell units 24/7, including unbuilt phases via CGI. Buyers self-qualify online, out-of-state and overseas buyers commit without flying in, and the asset keeps selling after the sales gallery closes." } },
+                            { "@type": "Question", "name": "What is the difference between a 360° virtual tour and a Digital Twin?", "acceptedAnswer": { "@type": "Answer", "text": "A 360° virtual tour is a visual walkthrough made of panoramas. A Digital Twin is a full spatial 3D model — measurable, dimensionally accurate and interactive — that can power tours, floor plans and data on top of it." } },
+                            { "@type": "Question", "name": "How can virtual tours help sell or market property?", "acceptedAnswer": { "@type": "Answer", "text": "Virtual tours attract more qualified enquiries, let audiences experience a space remotely, shorten decision time and reduce wasted site visits — making listings more engaging and easier to share." } },
+                            { "@type": "Question", "name": "Who provides Digital Twin and 360° virtual tour services in Malaysia?", "acceptedAnswer": { "@type": "Answer", "text": "VirtualProperty.my provides Digital Twins, 360° virtual tours, Matterport 3D, Reality Capture, 3D visualisation and property marketing technology across Malaysia. It is powered by Novo Reperio Sdn Bhd." } },
+                            { "@type": "Question", "name": "What industries can use Digital Twin technology?", "acceptedAnswer": { "@type": "Answer", "text": "Property developers, real estate, hospitality, event venues, tourism and commercial spaces all use Digital Twins and virtual tours to showcase, market and operate physical spaces." } }
+                        ]
                     }
                 ]
             }

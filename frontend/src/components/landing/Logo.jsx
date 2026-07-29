@@ -5,7 +5,7 @@ export function Logo({ className = "", dark = true, showText = true }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <img
-        src="/vp-icon.png"
+        src="/vp-icon-64.png"
         alt="VirtualProperty.my logo"
         width="30"
         height="30"

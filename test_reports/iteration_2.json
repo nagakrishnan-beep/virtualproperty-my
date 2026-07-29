@@ -1,0 +1,31 @@
+{
+  "summary": "Frontend-only regression + new-feature validation for VirtualProperty.my. 7 of 8 test areas PASS. CRITICAL: KnowledgeFAQ component is imported in App.js but never rendered in JSX, so the entire new FAQ section (data-testid faq-section, faq-question-0..7, faq-answer-0..7) is missing from the DOM. SEO head, JSON-LD @graph (WebSite/WebPage/Organization+ProfessionalService/Service/FAQPage), OG/Twitter tags, canonical, html lang=en-MY, single H1, WhatsApp hrefs (wa.me/60172029996), conversion funnel advancement, WhoWeHelp segments as <button>, and analytics dataLayer pushes (page_view, funnel_start, service_selection, project_type_selected, form_start, funnel_step) all working with zero page/console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "App.js / KnowledgeFAQ",
+        "issue": "KnowledgeFAQ is imported (line 11) but NOT rendered in JSX. The <main> block goes directly WhoWeHelp -> ConversionFunnel. As a result the FAQ section is completely absent from the live page: [data-testid=faq-section] returns null and 0 faq-question-* elements exist. This blocks the entire NEW FAQ requirement in the review request.",
+        "selector": "[data-testid=\"faq-section\"]",
+        "priority": "CRITICAL"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "In /app/frontend/src/App.js, render <KnowledgeFAQ /> between <WhoWeHelp /> and <ConversionFunnel /> inside the <main> element (the import already exists on line 11 but the component is never used). After this one-line fix, re-run FAQ + JSON-LD FAQPage consistency check."
+  ],
+  "critical_code_review_comments": [
+    "App.js imports KnowledgeFAQ but never uses it -- dead import that also indicates the intended feature was never wired up. A lint rule (no-unused-vars for React components) would have caught this.",
+    "Rest of the SEO/analytics implementation is clean: single valid JSON-LD @graph, dataLayer no-op layer never throws, html lang=en-MY, exactly one H1, all OG/Twitter tags populated."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "87% (7/8 areas pass; FAQ section entirely missing)"},
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Single-line fix expected (add <KnowledgeFAQ /> in App.js JSX between WhoWeHelp and ConversionFunnel). After fix, verify: (1) [data-testid=faq-section] exists, (2) 8 faq-question-0..7 buttons render, (3) clicking each toggles aria-expanded and faq-answer-N visibility, (4) first question text contains 'What is a Digital Twin for property?'. Everything else (SEO head, JSON-LD 5 @types, OG/Twitter, canonical, en-MY, single H1, WhatsApp hrefs to 60172029996, funnel goal->deliverable->details flow, WhoWeHelp segments as <button>, dataLayer receiving page_view/funnel_start/service_selection/project_type_selected/form_start without errors) already verified passing at 1440x900. Responsive spot-checks at 1024/768/390 not repeated because primary blocker exists; recommend re-check after FAQ is rendered.",
+  "rca of the issue": "Root cause: developer added `import KnowledgeFAQ from '@/components/landing/KnowledgeFAQ'` at App.js line 11 but forgot to place the JSX tag inside <main>. Reproduction: load base URL, run document.querySelector('[data-testid=\"faq-section\"]') -> null. Fix: add <KnowledgeFAQ /> between <WhoWeHelp /> and <ConversionFunnel /> in App.js render output."
+}

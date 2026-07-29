@@ -64,13 +64,19 @@ export default function WhoWeHelp() {
             return (
               <div
                 key={s.label}
-                data-testid={`segment-${i}`}
-                onMouseEnter={() => setActive(i)}
-                onClick={() => setActive(i)}
-                className="group border-t border-white/10 cursor-default"
+                className="group border-t border-white/10"
                 style={{ opacity: isActive ? 1 : 0.4, transition: "opacity 0.4s ease" }}
               >
-                <div className="flex items-center gap-5 md:gap-8 py-6 md:py-8">
+                <button
+                  type="button"
+                  data-testid={`segment-${i}`}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                  onClick={() => setActive(i)}
+                  aria-expanded={isActive}
+                  aria-controls={`segment-panel-${i}`}
+                  className="w-full text-left flex items-center gap-5 md:gap-8 py-6 md:py-8"
+                >
                   <span
                     className="font-mono-vp text-xs w-8 shrink-0"
                     style={{ color: isActive ? "#f4b14c" : "rgba(255,255,255,0.4)" }}
@@ -80,17 +86,19 @@ export default function WhoWeHelp() {
                   <Icon
                     className="w-6 h-6 shrink-0 transition-colors duration-300"
                     style={{ color: isActive ? "#e27b29" : "rgba(255,255,255,0.5)" }}
+                    aria-hidden="true"
                   />
-                  <h3
+                  <span
                     className="font-display text-2xl md:text-4xl lg:text-5xl transition-transform duration-500"
                     style={{ transform: isActive ? "translateX(8px)" : "none" }}
                   >
                     {s.label}
-                  </h3>
-                </div>
+                  </span>
+                </button>
                 <AnimatePresence>
                   {isActive && (
                     <motion.div
+                      id={`segment-panel-${i}`}
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}

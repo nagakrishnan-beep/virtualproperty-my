@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { whatsappLink } from "../../config";
+import { track } from "../../lib/analytics";
 
 // Floating WhatsApp button + optional sticky mobile CTA lives in App.
 export default function WhatsAppButton({ message }) {
@@ -7,6 +8,7 @@ export default function WhatsAppButton({ message }) {
     <motion.a
       data-testid="whatsapp-float"
       href={whatsappLink(message)}
+      onClick={() => track("whatsapp_click", { location: "float" })}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
