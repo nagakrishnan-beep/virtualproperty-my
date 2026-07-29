@@ -62,6 +62,13 @@ export default function Navbar({ onStart, scrollTo }) {
                 {l.label}
               </button>
             ))}
+            <a
+              data-testid="nav-link-insights"
+              href="/insights/"
+              className="font-mono-vp text-[0.72rem] uppercase tracking-[0.18em] text-white/60 hover:text-white transition-colors duration-300"
+            >
+              Insights
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -106,6 +113,13 @@ export default function Navbar({ onStart, scrollTo }) {
                   {l.label}
                 </button>
               ))}
+              <a
+                data-testid="mobile-link-insights"
+                href="/insights/"
+                className="text-left font-display text-2xl text-white/90"
+              >
+                Insights
+              </a>
               <button
                 data-testid="mobile-start-project"
                 onClick={() => {

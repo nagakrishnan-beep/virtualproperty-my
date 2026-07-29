@@ -41,6 +41,15 @@ export default function Footer({ scrollTo }) {
                   </button>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/insights/"
+                  data-testid="footer-link-insights"
+                  className="text-sm text-white/60 hover:text-white transition-colors duration-300"
+                >
+                  Insights
+                </a>
+              </li>
             </ul>
           </nav>
 

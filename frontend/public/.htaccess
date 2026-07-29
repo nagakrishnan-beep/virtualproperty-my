@@ -21,15 +21,16 @@ DirectoryIndex index.html
     RewriteRule ^about-virtual-tour/?$                              https://virtualproperty.my/#knowledge  [R=301,L,NE]
     RewriteRule ^3d-rendering/?$                                    https://virtualproperty.my/#what-we-do [R=301,L,NE]
     RewriteRule ^agencies-developers/?$                            https://virtualproperty.my/#who-we-help [R=301,L,NE]
-    RewriteRule ^guides/?$                                          https://virtualproperty.my/#knowledge  [R=301,L,NE]
-    RewriteRule ^virtual-site-visits/?$                            https://virtualproperty.my/#experiences [R=301,L,NE]
+    RewriteRule ^guides/?$                                          https://virtualproperty.my/insights/  [R=301,L,NE]
+
+    # Article 3 legacy URL -> new technology-focused article
+    RewriteRule ^characteristics-of-good-property-agent-in-malaysia/?$   https://virtualproperty.my/property-agent-technology/ [R=301,L]
 
     # Removed property-portal / discontinued content -> homepage
     RewriteRule ^camera-rental/?$                                              https://virtualproperty.my/ [R=301,L]
     RewriteRule ^agents/?$                                                     https://virtualproperty.my/ [R=301,L]
     RewriteRule ^for-sale/?$                                                   https://virtualproperty.my/ [R=301,L]
     RewriteRule ^for-rent/?$                                                   https://virtualproperty.my/ [R=301,L]
-    RewriteRule ^characteristics-of-good-property-agent-in-malaysia/?$         https://virtualproperty.my/ [R=301,L]
 
     # --- Legacy WordPress lockdown (extra defense while old WP is removed) ---
     # Return 410 Gone so search engines drop these old paths, and block

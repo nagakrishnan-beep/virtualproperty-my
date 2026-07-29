@@ -1,0 +1,21 @@
+{
+  "summary": "Frontend-only regression + Spatial Insights static pages verified. Landing page unchanged: exactly one H1, hero/funnel/whatsapp-float present, WhatsApp uses +60172029996, main JSON-LD (WebSite/WebPage/Organization/Service/FAQPage/OfferCatalog/Offer) intact. Nav has data-testid nav-link-insights (desktop <a href='/insights/'>), mobile-link-insights inside nav-menu-toggle, and footer-link-insights — all href='/insights/'. Clicking desktop nav-link-insights on / navigates to /insights/. Hub /insights/ returns 200, renders 'Spatial Insights' H1, links to all 3 article pages, canonical https://virtualproperty.my/insights/, JSON-LD includes CollectionPage + BreadcrumbList. All 3 articles return 200 with correct single H1, correct canonicals, JSON-LD includes Article + BreadcrumbList + FAQPage (using @graph — parsed via curl grep). Each article has TOC, multiple H2s, FAQ <details> that toggle open/closed on <summary> click, credibility block with 'Novo Reperio' (2-3 mentions), CTA band with 'Start a Project' (href='/#start', 2 links each) and WhatsApp (href starts https://wa.me/60172029996), and 2 related-article cards linking to the other insights. PST article has exactly 7 numbered H2 technology sections (Digital Twins, 360° Virtual Tours, Matterport, Drone, 3D Visualisation/CGI, Virtual Staging, AI). VSV has internal links to /#what-we-do (4) and /#experiences (1). /assets/insights.css returns 200. No horizontal overflow at 1440/1024/768/390 on hub or any article. No console errors on landing (only a benign Lenis position warning).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "JSON-LD on insights pages uses @graph wrapper — SEO tools parse it correctly, but automated Playwright parsers that only read top-level @type will see null. Not a bug; noting for future test scripts.",
+    "Landing console emits a benign Lenis warning: 'Please ensure that the container has a non-static position...'. Consider adding position:relative to the Lenis wrapper to silence."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (skipped)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Insights hub + 3 articles are static HTML in /app/frontend/public/{insights,virtual-site-visits,property-sales-technology-trends,property-agent-technology}/index.html. Landing page nav/footer wired via data-testid nav-link-insights / mobile-link-insights / footer-link-insights. .htaccess redirects are prod-Apache only — not testable in preview. Prior iterations 1-8 passed; iteration 9 confirms Insights addition ships cleanly."
+}
