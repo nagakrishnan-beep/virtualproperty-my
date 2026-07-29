@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en-MY">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, follow" />
+        <title>Lost in Space — 404 | VirtualProperty.my</title>
+        <meta name="theme-color" content="#020203" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Azeret+Mono:wght@500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --grad: linear-gradient(105deg, #8b1561 0%, #e27b29 55%, #f4b14c 100%);
+            }
+            * { box-sizing: border-box; }
+            body {
+                margin: 0;
+                min-height: 100vh;
+                background: #020203;
+                color: #f5f4f1;
+                font-family: "Manrope", sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                position: relative;
+                -webkit-font-smoothing: antialiased;
+            }
+            .grid {
+                position: absolute; inset: 0;
+                background-image:
+                    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+                background-size: 44px 44px;
+                mask-image: radial-gradient(circle at 50% 40%, #000, transparent 75%);
+                -webkit-mask-image: radial-gradient(circle at 50% 40%, #000, transparent 75%);
+            }
+            .glow {
+                position: absolute; inset: 0;
+                background: radial-gradient(60% 50% at 50% 30%, rgba(226,123,41,0.18), transparent 60%),
+                            radial-gradient(50% 50% at 50% 90%, rgba(139,21,97,0.18), transparent 60%);
+            }
+            .wrap { position: relative; z-index: 2; text-align: center; padding: 32px 20px; max-width: 720px; }
+            .eyebrow {
+                font-family: "Azeret Mono", monospace;
+                text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.7rem;
+                color: rgba(245,244,241,0.6); margin: 0 0 18px;
+            }
+            .code {
+                font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+                font-size: clamp(5rem, 22vw, 12rem); line-height: 0.9; margin: 0;
+                background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+            }
+            h1 {
+                font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+                letter-spacing: -0.03em; font-size: clamp(2rem, 7vw, 3.5rem);
+                margin: 8px 0 12px; line-height: 1;
+            }
+            p.sub { color: rgba(245,244,241,0.65); font-size: 1.05rem; margin: 0 auto 34px; max-width: 42ch; }
+            .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+            a.btn {
+                display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+                padding: 14px 24px; border-radius: 999px; font-size: 0.9rem; font-weight: 600;
+                transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+            }
+            a.btn:hover { transform: translateY(-2px); }
+            a.primary { background: #f5f4f1; color: #020203; }
+            a.primary:hover { background: #f4b14c; }
+            a.ghost { border: 1px solid rgba(245,244,241,0.25); color: #f5f4f1; }
+            a.ghost:hover { border-color: rgba(245,244,241,0.7); }
+            a.wa { background: #25d366; color: #052e16; }
+            a:focus-visible { outline: 2px solid #f4b14c; outline-offset: 3px; }
+            .brand { position: absolute; top: 22px; left: 50%; transform: translateX(-50%); z-index: 3; display: inline-flex; align-items: center; gap: 8px; }
+            .brand img { width: 26px; height: 26px; }
+            .brand span { font-family: "Cabinet Grotesk", sans-serif; font-weight: 700; font-size: 0.95rem; }
+        </style>
+    </head>
+    <body>
+        <div class="grid" aria-hidden="true"></div>
+        <div class="glow" aria-hidden="true"></div>
+        <a class="brand" href="/" aria-label="VirtualProperty.my home">
+            <img src="/vp-icon-64.png" alt="" />
+            <span>VirtualProperty.my</span>
+        </a>
+        <main class="wrap">
+            <p class="eyebrow">Error 404</p>
+            <p class="code">404</p>
+            <h1>Lost in space?</h1>
+            <p class="sub">Looks like this page has drifted out of orbit. Let's get you back to solid ground.</p>
+            <nav class="actions" aria-label="Recovery links">
+                <a class="btn primary" href="/">Back to Home</a>
+                <a class="btn ghost" href="/#what-we-do">Explore Services</a>
+                <a class="btn ghost" href="/#start">Start a Project</a>
+                <a
+                    class="btn wa"
+                    href="https://wa.me/60172029996?text=Hi%20VirtualProperty.my%2C%20I%20would%20like%20to%20discuss%20a%20spatial%20technology%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >WhatsApp Us</a
+                >
+            </nav>
+        </main>
+    </body>
+</html>

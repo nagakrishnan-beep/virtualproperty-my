@@ -48,13 +48,18 @@ export default function Footer({ scrollTo }) {
             <p className="eyebrow text-white/40 mb-4">Legal</p>
             <ul className="space-y-3">
               <li>
-                <a href="#" data-testid="footer-privacy" className="text-sm text-white/60 hover:text-white transition-colors duration-300">
+                <a href="/privacy-policy/" data-testid="footer-privacy" className="text-sm text-white/60 hover:text-white transition-colors duration-300">
                   Privacy
                 </a>
               </li>
               <li>
-                <a href="#" data-testid="footer-terms" className="text-sm text-white/60 hover:text-white transition-colors duration-300">
+                <a href="/terms-conditions/" data-testid="footer-terms" className="text-sm text-white/60 hover:text-white transition-colors duration-300">
                   Terms
+                </a>
+              </li>
+              <li>
+                <a href="/contact/" data-testid="footer-contact" className="text-sm text-white/60 hover:text-white transition-colors duration-300">
+                  Contact
                 </a>
               </li>
               {NOVO_REPERIO_URL && (
