@@ -30,6 +30,15 @@ DirectoryIndex index.html
     RewriteRule ^for-sale/?$                                                   https://virtualproperty.my/ [R=301,L]
     RewriteRule ^for-rent/?$                                                   https://virtualproperty.my/ [R=301,L]
     RewriteRule ^characteristics-of-good-property-agent-in-malaysia/?$         https://virtualproperty.my/ [R=301,L]
+
+    # --- Legacy WordPress lockdown (extra defense while old WP is removed) ---
+    # Return 410 Gone so search engines drop these old paths, and block
+    # common WordPress attack/scan targets. This static site uses no WordPress.
+    RewriteRule ^(wp-admin|wp-includes|wp-content|wp-json)(/.*)?$   - [G,NC]
+    RewriteRule ^(wp-login\.php|wp-signup\.php|wp-cron\.php|xmlrpc\.php|wp-config\.php)$   - [G,NC]
+    RewriteRule ^(wp-.*\.php)$   - [G,NC]
+    RewriteCond %{QUERY_STRING} (^|&)author=\d [NC]
+    RewriteRule ^ - [G]
 </IfModule>
 
 # --- Genuine 404 for anything that isn't a real file/page ---
