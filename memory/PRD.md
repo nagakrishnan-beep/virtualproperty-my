@@ -27,3 +27,13 @@ Premium, cinematic, conversion-focused ONE-PAGE marketing landing page for Virtu
 - P1: Wire FORM_ENDPOINT (WordPress/Formspree/CRM) + surface error state on non-OK responses.
 - P1: Replace placeholder project imagery with real Novo Reperio project media + real experience URLs (PROJECT_LINKS).
 - P2: Add og-image.jpg asset; add analytics (ANALYTICS_ID); optional privacy/terms pages.
+
+## SEO/AEO/GEO Iteration (2026-01)
+- Head: Malaysia-focused title + meta description, canonical https://virtualproperty.my/, OG/Twitter (locale en_MY, image spec 1200x630), html lang=en-MY, robots max-image-preview:large, logo preload.
+- JSON-LD @graph: WebSite, WebPage, Organization+ProfessionalService (areaServed Malaysia, knowsAbout, parent Novo Reperio Sdn Bhd), Service w/ OfferCatalog (4 capabilities), FAQPage (8 Q&A matching visible content).
+- New visible KnowledgeFAQ section (AEO/GEO) — 8 concise factual answers, accordion.
+- Accessibility: WhoWeHelp rows converted to keyboard <button>s (aria-expanded/controls), nav aria-label, decorative icons aria-hidden.
+- Analytics-readiness: src/lib/analytics.js no-op track() -> dataLayer; ANALYTICS + SERVICE_PAGES placeholders in config; events wired (page_view, cta_click, service_selection, project_type_selected, funnel_start/step, form_start/submit, whatsapp_click).
+- Perf: optimised nav logo (vp-icon-64.png ~8KB) + preload; images lazy below fold; font-display swap.
+- robots.txt allows Googlebot/Bingbot/OAI-SearchBot/GPTBot/PerplexityBot; sitemap.xml single canonical URL.
+- Verified by testing_agent iteration_3: 100% frontend pass, no regressions.
