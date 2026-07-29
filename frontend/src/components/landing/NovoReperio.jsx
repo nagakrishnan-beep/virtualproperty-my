@@ -28,7 +28,7 @@ export default function NovoReperio() {
           {Array.from({ length: 3 }).map((_, r) => (
             <span key={r} className="flex items-center">
               <span className="font-display text-4xl md:text-6xl text-black/[0.12] mx-6">
-                POWERED BY NOVO REPERIO
+                POWERED BY REALITY CAPTURE EXPERTS
               </span>
               <span className="w-3 h-3 rounded-full bg-grad mx-6" />
             </span>
@@ -47,10 +47,10 @@ export default function NovoReperio() {
             <span className="text-gradient">spatial technology experts.</span>
           </h2>
           <p className="mt-6 max-w-xl text-base md:text-lg text-black/60 font-sans-vp leading-relaxed">
-            VirtualProperty.my is powered by Novo Reperio Sdn Bhd, a Malaysian
-            spatial technology company specialising in Reality Capture, Digital
-            Twins, 360° Virtual Tours, 3D visualisation, immersive experiences
-            and digital property marketing.
+            VirtualProperty.my leverages cutting-edge Malaysian spatial
+            technology, from Digital Twins and Reality Capture to 3D
+            visualization, to revolutionize how properties are showcased and
+            marketed online.
           </p>
           {NOVO_REPERIO_URL && (
             <a

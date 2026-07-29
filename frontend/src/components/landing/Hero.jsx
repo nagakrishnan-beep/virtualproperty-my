@@ -101,7 +101,7 @@ export default function Hero({ onExplore, onStart }) {
           className="flex items-center gap-3 mb-8"
         >
           <span className="h-px w-10 bg-grad" />
-          <span className="eyebrow text-white/70">Powered by Novo Reperio</span>
+          <span className="eyebrow text-white/70">Powered by Reality Capture Experts</span>
         </motion.div>
 
         <h1 className="font-display text-[15vw] sm:text-[12vw] md:text-[8.4vw] lg:text-[7.6rem] text-white max-w-[16ch]">

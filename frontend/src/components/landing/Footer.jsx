@@ -17,8 +17,7 @@ export default function Footer({ scrollTo }) {
               <span className="text-gradient">an Experience.</span>
             </p>
             <p className="mt-4 text-sm text-white/45 max-w-xs">
-              Powered by Novo Reperio Sdn Bhd — spatial technology &amp; Digital
-              Twin specialists.
+              Crafted by Reality Capture Experts.
             </p>
           </div>
 
@@ -91,7 +90,7 @@ export default function Footer({ scrollTo }) {
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/40">
           <span>© 2026 VirtualProperty.my. All rights reserved.</span>
-          <span className="font-mono-vp">Powered by Novo Reperio Sdn Bhd</span>
+          <span className="font-mono-vp">Powered by Reality Capture Experts</span>
         </div>
       </div>
     </footer>
