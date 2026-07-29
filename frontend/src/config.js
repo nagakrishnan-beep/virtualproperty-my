@@ -37,20 +37,20 @@ export const SOCIAL = {
   youtube: "",
 };
 
-// Placeholder outbound links for showcased experiences (non-functional
-// until real Novo Reperio / VirtualProperty project URLs are supplied).
+// Live project experience links (open in a new tab from "Explore Experience").
 export const PROJECT_LINKS = {
-  property: "",
-  hospitality: "",
-  venues: "",
-  developments: "",
+  property: "https://virtualproperty.my/360tour/royallexis/",
+  hospitality: "https://lexis.novoreperio.com/",
+  venues:
+    "https://www.klccconventioncentre.com/organisers/plan-an-event/interactive-tour",
+  developments: "https://novoreperio.com/360tour/peel-lane/",
 };
 
 // Analytics measurement IDs. Leave "" to keep tracking disabled.
 // When real IDs are provided, add the corresponding loader script and
 // events (see src/lib/analytics.js) will start flowing automatically.
 export const ANALYTICS = {
-  ga4Id: "", // e.g. "G-XXXXXXXXXX"
+  ga4Id: "G-2P77N0M1KX", // Google Analytics 4
   gtmId: "", // e.g. "GTM-XXXXXXX"
   metaPixelId: "", // e.g. "1234567890"
   googleAdsId: "", // e.g. "AW-XXXXXXXXX"

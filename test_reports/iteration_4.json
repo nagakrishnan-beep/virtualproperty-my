@@ -1,0 +1,51 @@
+{
+  "summary": "Iteration 4 frontend-only verification of GA4 activation (G-2P77N0M1KX) and Experience Our Work real project links. All targeted features verified live in the preview URL. No regressions detected.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified": {
+    "ga4": {
+      "gtag_js_network_request": "https://www.googletagmanager.com/gtag/js?id=G-2P77N0M1KX loaded",
+      "window_gtag_is_function": true,
+      "window___ga4Loaded": true,
+      "dataLayer_entries_include": ["js init", "config G-2P77N0M1KX", "page_view {page:'home'}"],
+      "cta_click_pushes_events": "dataLayer grew from 11 -> 14 after CTA interaction (cta_click emitted)"
+    },
+    "experience_cards": {
+      "project-property": {"heading": "Royal Lexis", "href": "https://virtualproperty.my/360tour/royallexis/", "target": "_blank", "rel": "noopener noreferrer"},
+      "project-hospitality": {"heading": "Lexis", "href": "https://lexis.novoreperio.com/", "target": "_blank", "rel": "noopener noreferrer"},
+      "project-venues": {"heading": "KLCC Convention Centre", "href": "https://www.klccconventioncentre.com/organisers/plan-an-event/interactive-tour", "target": "_blank", "rel": "noopener noreferrer"},
+      "project-developments": {"heading": "Peel Lane", "href": "https://novoreperio.com/360tour/peel-lane/", "target": "_blank", "rel": "noopener noreferrer"}
+    },
+    "regression": {
+      "console_errors": 0,
+      "h1_count": 1,
+      "faq_section_renders": true,
+      "faq_question_0_toggles": true,
+      "faq_question_7_present": true,
+      "whatsapp_float_href": "https://wa.me/60172029996?text=...",
+      "final_whatsapp_btn_href": "https://wa.me/60172029996?text=...",
+      "funnel_goal_step": "6 goal-* options visible; clicking advances to Deliverable step visually (screenshot confirmed 360° Virtual Tour, Digital Twin, 3D/CGI, Interactive Website options)"
+    },
+    "responsive_no_horizontal_overflow": {"1440": true, "1024": true, "768": true, "390": true}
+  },
+  "notes": {
+    "funnel_deliverable_selector": "Playwright query 'deliverable-*' returned 0 during rapid re-query (likely due to Lenis + framer-motion transitions between step render). Visually the Deliverable step rendered with the 4 expected options after selecting a goal, and funnel_step events were pushed to dataLayer. Not a regression."
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "analytics.js/initGA4 correctly guards against double injection via window.__ga4Loaded — good.",
+    "ExperienceWork.jsx correctly conditions target=_blank + rel=noopener noreferrer on url presence — good.",
+    "Consider adding a data-testid on the Deliverable step buttons (e.g. deliverable-<key>) to make future automated testing more reliable; today they are only discoverable via role/text."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped as requested)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "GA4 live with G-2P77N0M1KX; Experience cards link to real tours in new tab. All previous iteration_3 flows still pass. Note deliverable step buttons currently lack data-testid='deliverable-*' — if that becomes a testing requirement, ask main agent to add them."
+}

@@ -8,29 +8,33 @@ const PROJECTS = [
   {
     key: "property",
     category: "Property",
-    desc: "Residential and luxury homes explored in full immersive detail — before a single site visit.",
+    project: "Royal Lexis",
+    desc: "Step inside Royal Lexis — a residential 360° virtual tour you can explore room by room, before a single site visit.",
     caps: ["Digital Twin", "360° Virtual Tour", "Interactive Floor Plan"],
     img: "https://images.pexels.com/photos/33685861/pexels-photo-33685861.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     key: "hospitality",
     category: "Hospitality",
-    desc: "Hotels, resorts and destinations that let guests experience the space before they book.",
+    project: "Lexis",
+    desc: "Experience Lexis hospitality spaces and rooms the way guests will — an immersive walkthrough before they book.",
     caps: ["360° Virtual Tour", "Aerial 360°", "3D / CGI"],
     img: "https://images.pexels.com/photos/27695825/pexels-photo-27695825.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     key: "venues",
     category: "Venues",
-    desc: "Event and function spaces planners can walk through and configure remotely.",
-    caps: ["Interactive Floor Plan", "Virtual Staging", "Digital Twin"],
+    project: "KLCC Convention Centre",
+    desc: "Walk the KLCC Convention Centre through an interactive venue tour, so event planners understand the space remotely.",
+    caps: ["Interactive Tour", "Digital Twin", "Aerial 360°"],
     img: "https://images.pexels.com/photos/33685860/pexels-photo-33685860.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     key: "developments",
     category: "Developments",
-    desc: "Off-plan launches brought to life with CGI show units for unbuilt phases.",
-    caps: ["3D / CGI", "Virtual Staging", "Property Microsite"],
+    project: "Peel Lane",
+    desc: "Tour the Peel Lane development in immersive 360°, bringing the project to life for buyers from anywhere.",
+    caps: ["360° Virtual Tour", "3D / CGI", "Aerial 360°"],
     img: "https://images.unsplash.com/photo-1644088379091-d574269d422f?auto=format&fit=crop&w=1200&q=80",
   },
 ];
@@ -90,7 +94,7 @@ function ProjectCard({ p, index, onStart }) {
     >
       <img
         src={p.img}
-        alt={`${p.category} — immersive spatial experience example`}
+        alt={`${p.project} — ${p.category.toLowerCase()} 360° virtual tour by VirtualProperty.my`}
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover transition-transform ease-out group-hover:scale-105"
         style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
@@ -122,7 +126,7 @@ function ProjectCard({ p, index, onStart }) {
               </span>
             ))}
           </div>
-          <h3 className="font-display text-3xl md:text-4xl">{p.category}</h3>
+          <h3 className="font-display text-3xl md:text-4xl">{p.project}</h3>
           <p className="mt-2 text-sm text-white/60 max-w-md leading-relaxed">
             {p.desc}
           </p>

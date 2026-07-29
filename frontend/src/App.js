@@ -13,12 +13,14 @@ import NovoReperio from "@/components/landing/NovoReperio";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 import WhatsAppButton from "@/components/landing/WhatsAppButton";
-import { track } from "@/lib/analytics";
+import { track, initGA4 } from "@/lib/analytics";
+import { ANALYTICS } from "@/config";
 
 function App() {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    initGA4(ANALYTICS.ga4Id);
     track("page_view", { page: "home" });
   }, []);
 
