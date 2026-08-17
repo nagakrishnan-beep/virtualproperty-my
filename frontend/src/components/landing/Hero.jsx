@@ -121,7 +121,7 @@ export default function Hero({ onExplore, onStart }) {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: EASE, delay: 1.05 }}
-          className="mt-8 max-w-xl text-base md:text-lg text-white/65 leading-relaxed font-sans-vp"
+          className="mt-8 max-w-xl text-base md:text-lg text-white/80 leading-relaxed font-sans-vp"
         >
           Digital Twins, 360° Virtual Tours, Reality Capture and immersive
           digital experiences for property and the built environment across
@@ -166,7 +166,7 @@ export default function Hero({ onExplore, onStart }) {
         transition={{ delay: 1.8, duration: 1 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="font-mono-vp text-[0.6rem] uppercase tracking-[0.3em] text-white/40">
+        <span className="font-mono-vp text-[0.7rem] uppercase tracking-[0.3em] text-white/50">
           Scroll
         </span>
         <motion.span
