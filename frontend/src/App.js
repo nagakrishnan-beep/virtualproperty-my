@@ -8,6 +8,7 @@ import WhatWeDo from "@/components/landing/WhatWeDo";
 import ExperienceWork from "@/components/landing/ExperienceWork";
 import WhoWeHelp from "@/components/landing/WhoWeHelp";
 import ConversionFunnel from "@/components/landing/ConversionFunnel";
+import QuickQuote from "@/components/landing/QuickQuote";
 import KnowledgeFAQ from "@/components/landing/KnowledgeFAQ";
 import NovoReperio from "@/components/landing/NovoReperio";
 import FinalCTA from "@/components/landing/FinalCTA";
@@ -22,6 +23,31 @@ function App() {
   useEffect(() => {
     initGA4(ANALYTICS.ga4Id);
     track("page_view", { page: "home" });
+  }, []);
+
+  // Scroll-depth tracking — fires once at 50% and once at 90%.
+  useEffect(() => {
+    const fired = { 50: false, 90: false };
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const scrolled =
+        (window.scrollY + window.innerHeight) /
+        (doc.scrollHeight || 1);
+      const pct = Math.round(scrolled * 100);
+      if (!fired[50] && pct >= 50) {
+        fired[50] = true;
+        track("scroll_depth", { percent: 50 });
+      }
+      if (!fired[90] && pct >= 90) {
+        fired[90] = true;
+        track("scroll_depth", { percent: 90 });
+      }
+      if (fired[50] && fired[90]) {
+        window.removeEventListener("scroll", onScroll);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -75,6 +101,7 @@ function App() {
         <ExperienceWork onStart={startProject} />
         <WhoWeHelp />
         <KnowledgeFAQ />
+        <QuickQuote />
         <ConversionFunnel />
         <NovoReperio />
         <FinalCTA onStart={startProject} />

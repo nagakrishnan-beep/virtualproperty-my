@@ -115,7 +115,7 @@ export default function ConversionFunnel({ registerScrollTarget }) {
 
   return (
     <section
-      id="start"
+      id="start-guided"
       ref={registerScrollTarget}
       data-testid="funnel-section"
       className="relative bg-[#020203] text-white py-24 md:py-36 grain overflow-hidden"
