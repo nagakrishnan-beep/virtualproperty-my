@@ -21,11 +21,21 @@ function App() {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    // Remove the brand splash the instant the app hydrates.
+    // Brand splash — two-gate exit: only hide when BOTH conditions are met
+    //   (a) hydration has actually completed (this effect fired)
+    //   (b) the minimum hold time (600ms) has elapsed
+    // Guarantees the 400ms entrance animation always finishes before any exit.
     const splash = document.getElementById("vp-splash");
     if (splash) {
-      splash.classList.add("vp-splash-hide");
-      setTimeout(() => splash.remove(), 550);
+      const MIN_HOLD_MS = 600;
+      const FADE_MS = 600;
+      const startedAt = window.__vpSplashT0 || Date.now();
+      const elapsed = Date.now() - startedAt;
+      const wait = Math.max(MIN_HOLD_MS - elapsed, 0);
+      setTimeout(() => {
+        splash.classList.add("vp-splash-hide");
+        setTimeout(() => splash.remove(), FADE_MS);
+      }, wait);
     }
     initGA4(ANALYTICS.ga4Id);
     track("page_view", { page: "home" });
