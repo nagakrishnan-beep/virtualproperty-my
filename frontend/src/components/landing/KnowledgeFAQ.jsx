@@ -17,6 +17,14 @@ const FAQS = [
     a: "Matterport is a 3D capture platform that scans a physical space and turns it into a photorealistic, measurable Digital Twin, widely used for property, hospitality and commercial virtual tours.",
   },
   {
+    q: "What is Matterport 3D scanning?",
+    a: "Matterport 3D scanning creates a precise, photo-realistic 3D digital replica of a property using specialised capture cameras, letting anyone view accurate room dimensions and layouts remotely.",
+  },
+  {
+    q: "What is 3D Rendering for property?",
+    a: "3D Rendering (CGI) produces photo-realistic visualisations of a property or interior — used for show units, pre-construction marketing, and spaces that don't exist yet.",
+  },
+  {
     q: "How can a Digital Twin help property developers?",
     a: "A Digital Twin lets developers market and sell units 24/7, including unbuilt phases via CGI. Buyers self-qualify online, out-of-state and overseas buyers commit without flying in, and the asset keeps selling after the sales gallery closes.",
   },

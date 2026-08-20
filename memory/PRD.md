@@ -23,7 +23,10 @@ Premium, one-page conversion-focused marketing website for VIRTUALPROPERTY.MY (N
 - `/app/virtualproperty-hostinger.zip` — final deployment artifact
 
 ## Implemented (this session + prior)
-- Landing UI, hero, transformation, what-we-do, experiences, who-we-help, FAQ, funnel, footer
+- **Phase 2 (2026-08-20)**: Privacy/compliance + brand + SEO polish
+  - Removed all Emergent platform tracking from `public/index.html`: deleted the `assets.emergent.sh/scripts/emergent-main.js` tag and the entire PostHog init block (which was sending data — including session recording of the lead form — to `ap.emergent.sh`). GA4 (`G-2P77N0M1KX`) intentionally preserved.
+  - 404 page: swapped "Explore Services" for a direct `/insights/` link. `.htaccess` `ErrorDocument 404 /404.html` already in place so Hostinger returns a real HTTP 404.
+  - Keyword promotion in "01 — Capture" and "02 — Create" service card blurbs (Matterport 3D + 3D Rendering/CGI). Added two new Q&A entries to KnowledgeFAQ (visible UI + FAQPage JSON-LD): "What is Matterport 3D scanning?" and "What is 3D Rendering for property?"
 - GA4 (`G-2P77N0M1KX`) loaded via `initGA4`
 - Real virtual tour links wired into ExperienceWork
 - Favicon / manifest / OG image

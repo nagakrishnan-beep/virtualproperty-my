@@ -10,7 +10,7 @@ const CAPS = [
     title: "Reality Capture",
     icon: Camera,
     blurb:
-      "We digitise physical spaces with millimetre fidelity — the foundation of every digital twin.",
+      "We digitise physical spaces with millimetre fidelity using Matterport 3D, LiDAR and drone capture — the foundation of every digital twin.",
     services: [
       "Matterport 3D",
       "360° Photography",
@@ -26,7 +26,7 @@ const CAPS = [
     title: "Digital Twin & 3D",
     icon: Boxes,
     blurb:
-      "Raw scans become intelligent, explorable 3D assets — even before a space is built.",
+      "Raw scans become intelligent, explorable Digital Twins — with 3D Rendering and CGI for spaces that don't exist yet.",
     services: [
       "Digital Twins",
       "3D Modelling",

@@ -143,6 +143,8 @@
                             { "@type": "Question", "name": "What is a Digital Twin for property?", "acceptedAnswer": { "@type": "Answer", "text": "A property Digital Twin is an accurate, interactive 3D replica of a real space. It lets buyers, tenants and teams explore a property online — walking through rooms, checking dimensions and understanding layout — from any device, anywhere." } },
                             { "@type": "Question", "name": "What is a 360° virtual tour?", "acceptedAnswer": { "@type": "Answer", "text": "A 360° virtual tour connects panoramic images into a navigable walkthrough. Viewers look in every direction and move between spaces, experiencing a property remotely before visiting in person." } },
                             { "@type": "Question", "name": "What is Matterport?", "acceptedAnswer": { "@type": "Answer", "text": "Matterport is a 3D capture platform that scans a physical space and turns it into a photorealistic, measurable Digital Twin, widely used for property, hospitality and commercial virtual tours." } },
+                            { "@type": "Question", "name": "What is Matterport 3D scanning?", "acceptedAnswer": { "@type": "Answer", "text": "Matterport 3D scanning creates a precise, photo-realistic 3D digital replica of a property using specialised capture cameras, letting anyone view accurate room dimensions and layouts remotely." } },
+                            { "@type": "Question", "name": "What is 3D Rendering for property?", "acceptedAnswer": { "@type": "Answer", "text": "3D Rendering (CGI) produces photo-realistic visualisations of a property or interior — used for show units, pre-construction marketing, and spaces that don't exist yet." } },
                             { "@type": "Question", "name": "How can a Digital Twin help property developers?", "acceptedAnswer": { "@type": "Answer", "text": "A Digital Twin lets developers market and sell units 24/7, including unbuilt phases via CGI. Buyers self-qualify online, out-of-state and overseas buyers commit without flying in, and the asset keeps selling after the sales gallery closes." } },
                             { "@type": "Question", "name": "What is the difference between a 360° virtual tour and a Digital Twin?", "acceptedAnswer": { "@type": "Answer", "text": "A 360° virtual tour is a visual walkthrough made of panoramas. A Digital Twin is a full spatial 3D model — measurable, dimensionally accurate and interactive — that can power tours, floor plans and data on top of it." } },
                             { "@type": "Question", "name": "How can virtual tours help sell or market property?", "acceptedAnswer": { "@type": "Answer", "text": "Virtual tours attract more qualified enquiries, let audiences experience a space remotely, shorten decision time and reduce wasted site visits — making listings more engaging and easier to share." } },
@@ -154,7 +156,6 @@
             }
         </script>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
-        <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -262,76 +263,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_DbsPb39SRc8z3EiQ6Dhj6ikv4H4rTKcht9d4sZSesceP", {
-                api_host: "https://ap.emergent.sh",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well,
-                session_recording: {
-                    recordCrossOriginIframes: true,
-                    capturePerformance: false,
-                },
-            });
-        </script>
     </body>
 </html>
