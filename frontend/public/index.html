@@ -156,6 +156,58 @@
             }
         </script>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
+        <style>
+            /* Brand splash — cosmetic cover for the natural hydration gap.
+               Sits OUTSIDE #root so it doesn't interfere with the
+               pre-rendered SEO content and isn't removed by React's hydration.
+               App.js fades + removes it as soon as the first effect runs. */
+            #vp-splash {
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                background: #020203;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 1;
+                transition: opacity 0.5s ease;
+                pointer-events: none;
+                overflow: hidden;
+            }
+            #vp-splash.vp-splash-hide { opacity: 0; }
+            #vp-splash::before {
+                content: "";
+                position: absolute;
+                width: 320px;
+                height: 320px;
+                max-width: 60vw;
+                max-height: 60vw;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(139,21,97,0.38) 0%, rgba(226,123,41,0.18) 45%, transparent 72%);
+                filter: blur(18px);
+                animation: vpSplashGlow 2s ease-in-out infinite;
+            }
+            #vp-splash .vp-splash-logo {
+                position: relative;
+                width: 200px;
+                max-width: 44vw;
+                height: auto;
+                animation: vpSplashLogo 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+            }
+            @keyframes vpSplashLogo {
+                0%   { opacity: 0; transform: scale(0.94); }
+                100% { opacity: 1; transform: scale(1); }
+            }
+            @keyframes vpSplashGlow {
+                0%, 100% { opacity: 0.55; transform: scale(0.92); }
+                50%      { opacity: 1;    transform: scale(1.08); }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                #vp-splash .vp-splash-logo,
+                #vp-splash::before { animation: none; opacity: 1; }
+            }
+        </style>
+        <noscript><style>#vp-splash{display:none}</style></noscript>
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -181,6 +233,9 @@
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="vp-splash" aria-hidden="true">
+            <img class="vp-splash-logo" src="/vp-logo-2026.png" alt="" />
+        </div>
         <div id="root">
             <!-- Pre-rendered content for search engines and AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Bingbot). React replaces this on load. -->
             <header>

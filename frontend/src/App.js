@@ -21,6 +21,12 @@ function App() {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    // Remove the brand splash the instant the app hydrates.
+    const splash = document.getElementById("vp-splash");
+    if (splash) {
+      splash.classList.add("vp-splash-hide");
+      setTimeout(() => splash.remove(), 550);
+    }
     initGA4(ANALYTICS.ga4Id);
     track("page_view", { page: "home" });
   }, []);
