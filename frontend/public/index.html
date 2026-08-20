@@ -11,6 +11,7 @@
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://virtualproperty.my/" />
         <link rel="preload" as="image" href="/vp-icon-64.png" fetchpriority="high" />
+        <link rel="preload" as="image" href="/icon-192.png" fetchpriority="high" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -235,9 +236,18 @@
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="vp-splash" aria-hidden="true">
-            <img class="vp-splash-logo" src="/vp-logo-2026.png" alt="" />
+            <img
+                class="vp-splash-logo"
+                src="/icon-192.png"
+                alt=""
+                width="192"
+                height="192"
+                decoding="sync"
+                onload="window.__vpSplashImgReady=true"
+                onerror="window.__vpSplashImgReady=true"
+            />
         </div>
-        <script>window.__vpSplashT0=Date.now();</script>
+        <script>window.__vpSplashT0=Date.now();window.__vpSplashImgReady=window.__vpSplashImgReady||false;</script>
         <div id="root">
             <!-- Pre-rendered content for search engines and AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Bingbot). React replaces this on load. -->
             <header>
